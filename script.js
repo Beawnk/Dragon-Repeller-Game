@@ -4,7 +4,9 @@ let gold = 50;
 let currentWeapon = 0;
 let fighting;
 let monsterHealth;
-let inventory = ["graveto"];
+let inventory = ["faca"];
+let guessNumber1 = Math.floor(Math.random() * 11);
+let guessNumber2 = Math.floor(Math.random() * 11);
 const button1 = document.querySelector("#button1");
 const button2 = document.querySelector("#button2");
 const button3 = document.querySelector("#button3");
@@ -18,7 +20,7 @@ const monsterHealthText = document.querySelector("#monsterHealth");
 
 const weapons = [
     {
-        name: "graveto",
+        name: "faca",
         power: 5
     },
     {
@@ -80,27 +82,27 @@ const locations = [
     },
     {
         name: "Matar monstro",
-        "button text": ["Voltar para a cidade", "Voltar para a cidade", "Voltar para a cidade"],
-        "button functions": [goTown, easterEgg, easterEgg],
-        text: 'Você derrota o monstro. Você ganha ouro e experiência. Você agora tem ' + gold + ' ouro e ' + xp + ' experiência.'
+        "button text": ["Voltar para a cidade", "Andar pelas redondezas"],
+        "button functions": [goTown, easterEgg],
+        text: 'Você derrota o monstro. Você ganha ouro e experiência.'
     },
     {
         name: "Derrota",
-        "button text": ["Novo jogo", "Novo jogo", "Novo jogo"],
-        "button functions": [restart, restart, restart],
+        "button text": ["Novo jogo"],
+        "button functions": [restart],
         text: "Você morreu! Você perdeu o jogo. Tente novamente."
     },
     {
         name: "Vitória",
-        "button text": ["Novo jogo", "Novo jogo", "Novo jogo"],
-        "button functions": [restart, restart, restart],
+        "button text": ["Novo jogo"],
+        "button functions": [restart],
         text: "Você derrotou o dragão e venceu o jogo! Parabéns!"
     },
     {
         name: "Easter egg",
-        "button text": ["2", "8", "Voltar para a cidade"],
-        "button functions": [pickTwo, pickEight, goTown],
-        text: "Você caminha até um beco escuro e encontra um homem misterioso. Ele diz que tem um jogo para você. Escolha um número entre 0 e 10. Se o número que você escolher estiver entre os 10 números que ele escolher, você ganha 20 ouro. Se não, você perde 10 de vida."
+        "button text": [guessNumber1, guessNumber2, "Voltar para a cidade"],
+        "button functions": [pickOne, pickTwo, goTown],
+        text: "Você caminha até uma floresta escura e encontra um homem misterioso. Ele diz que tem um jogo para você. Escolha um número entre 0 e 10. Se o número que você escolher estiver entre os 10 números que ele escolher, você ganha 20 ouro. Se não, você perde 10 de vida."
     }
 ];
 
@@ -196,12 +198,14 @@ function fightBeast() {
 
 function fightDragon() {
   fighting = 2;
+  document.body.className = '';
   document.body.classList.add('dragon');
   goFight();
+  text.innerText = "Você encontra o dragão!";
 }
 
 function attack() {
-    text.innerText = "O" + monsters[fighting].name + " ataca.";
+    text.innerText = "O " + monsters[fighting].name + " ataca.";
     text.innerText += " Você o ataca com " + weapons[currentWeapon].name + ".";
 
     health -= getMonsterAttackValue(monsters[fighting].level);
@@ -277,24 +281,29 @@ function pick(guess) {
     }
 }
 
-function pickTwo() {
-    pick(2);
+function pickOne() {
+    pick(guessNumber1);
 }
 
-function pickEight() {
-    pick(8);
+function pickTwo() {
+    pick(guessNumber2);
 }
 
 function lose() {
     update(locations[5]);
+    healthText.innerText = health;
     document.body.className = '';
     document.body.classList.add('lose');
+    button2.classList.add('none');
+    button3.classList.add('none');
 }
 
 function winGame() {
     update(locations[6]);
     document.body.className = '';
     document.body.classList.add('win');
+    button2.classList.add('none');
+    button3.classList.add('none');
 }
 
 function defeatMonster() {
@@ -302,8 +311,9 @@ function defeatMonster() {
     xp += monsters[fighting].level;
     goldText.innerText = gold;
     xpText.innerText = xp;
-
+    
     update(locations[4]);
+    button3.classList.add('none');
 }
 
 function update(location) {
@@ -317,6 +327,8 @@ function update(location) {
     button3.onclick = location["button functions"][2];
 
     text.innerHTML = location.text;
+
+    button3.classList.remove('none');
 }
 
 function easterEgg() {
@@ -330,11 +342,14 @@ function restart() {
     health = 100;
     gold = 50;
     currentWeapon = 0;
-    inventory = ["graveto"];
+    inventory = ["faca"];
 
     xpText.innerText = xp;
     healthText.innerText = health;
     goldText.innerText = gold;
+
+    button2.classList.remove('none');
+    button3.classList.remove('none');
 
     goTown();
 }

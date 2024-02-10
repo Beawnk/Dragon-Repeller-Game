@@ -17,6 +17,21 @@ body.town {
 body.store {
     background-color: #8a627a;
 }
+body.cave {
+    background-color: #3e525d;
+}
+body.dragon {
+    background-color: #673b32;
+}
+body.lose {
+    background-color: #c0c3a4;
+}
+body.win {
+    background-color: #000000;
+}
+body.easter {
+    background-color: #7f8b57;
+}
 #game {
     max-width: 70vw;
     margin: 0 auto;
@@ -33,10 +48,29 @@ body.town #game {
 body.store #game {
     background-color: #6a374d;
 } 
+body.cave #game {
+    background-color: #273945;
+}
+body.dragon #game {
+    background-color: #652722;
+}
+body.lose #game {
+    background-color: #545347;
+}
+body.win #game {
+    background-color: #5a5f5bd8;
+}
+body.easter #game {
+    background-color: #4a5439;
+}
 body.start #game h1,
 body.start #game button,
 body.start #game span,
-body.start #game #text {
+body.start #game #text,
+body.dragon #game h1,
+body.dragon #game button,
+body.dragon #game span,
+body.dragon #game #text {
     color: #ffffff;
 }
 body.town #game h1,
@@ -50,6 +84,24 @@ body.store #game button,
 body.store #game span,
 body.store #game #text {
     color: #deb6e6;
+}
+body.cave #game h1,
+body.cave #game button,
+body.cave #game span,
+body.cave #game #text {
+    color: #000000;
+}
+body.lose #game h1,
+body.lose #game button,
+body.lose #game span,
+body.lose #game #text {
+    color: #ffffd1;
+}
+body.easter #game h1,
+body.easter #game button,
+body.easter #game span,
+body.easter #game #text {
+    color: #eadc8a;
 }
 #title {
     text-align: center;
@@ -90,6 +142,9 @@ body.store #game #text {
     padding: 5px;
     padding-left: 10px;
 }
+#controls button.none {
+    display: none;
+}
 #controls button:hover{
     text-decoration: none;
 }
@@ -104,6 +159,46 @@ body.store #controls button:hover {
     background-color: #9d78ac;
     color: #4d2b3a;
 }
+body.cave #controls button:hover {
+    background-color: #67818a;
+}
+body.dragon #controls button:hover {
+    background-color: #914f3d;
+}
+body.lose #controls button:hover {
+    background-color: #45473c;
+    color:#ffffd1;
+}
+body.win #controls button:hover {
+    background-color: #3f4140;
+    color: #202020;
+}
+body.easter #controls button:hover {
+    background-color: #96a063;
+    color: #263123;
+}
+body.lose #controls,
+body.win #controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+}
+body.lose #controls button,
+body.win #controls button{
+    text-align: center;
+    width: fit-content;
+    padding: 20px;
+    font-size: 28px;
+    text-decoration: none;
+    background-color: #bdbc9d;
+    color: #545347;
+    margin: auto;
+}
+body.win #controls button {
+    background-color: #202020;
+    color: #6d6e6d;
+}
 #controls button:last-child {
     margin-right: 0;
 }
@@ -114,6 +209,9 @@ body.store #controls button:hover {
     top: 0;
     padding: 10px;
     width: 100%;
+}
+#monsterStats span {
+    color: #ffffff !important;
 }
 #monsterStats span:first-child{
     margin-right: 20px;
@@ -138,12 +236,24 @@ body.town #text {
 body.store #text {
     background-color: #4d2b3a;
 }
+body.cave #text {
+    background-color: #1e2a31;
+}
+body.dragon #text {
+    background-color: #341514;
+}
+body.lose #text {
+    background-color: #3e3228;
+}
+body.win #text {
+    background-color: rgba(58, 58, 58, 0.719);
+}
+body.easter #text {
+    background-color: #263123;
+}
 .content-wrapper {
     display: flex;
     justify-content: space-between;
-    align-items: start;
-    margin-bottom: 20px;
-
 }
 #image-wrapper {
     width: calc(50% - 5px);
@@ -168,6 +278,27 @@ body.town #image-wrapper .game-images {
 }
 body.store #image-wrapper .game-images {
     background-image: url('images/store.jpg');
+}
+body.cave #image-wrapper .game-images {
+    background-image: url('images/cave.jpg');
+}
+body.slime #image-wrapper .game-images {
+    background-image: url('images/slime.jpg');
+}
+body.goblin #image-wrapper .game-images {
+    background-image: url('images/goblin.jpg');
+}
+body.dragon #image-wrapper .game-images {
+    background-image: url('images/dragon.jpg');
+}
+body.lose #image-wrapper .game-images {
+    background-image: url('images/lose.jpg');
+}
+body.win #image-wrapper .game-images {
+    background-image: url('images/win.jpg');
+}
+body.easter #image-wrapper .game-images {
+    background-image: url('images/easter.jpg');
 }
 #text-wrapper {
     width: calc(50% - 5px);
