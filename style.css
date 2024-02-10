@@ -6,16 +6,35 @@ body * {
     transition: var(--fast);
 }
 body {
-    background-color: #cdbeac;
     font-family: 'Roboto', sans-serif;
 }
+body.start {
+    background-color: #c76554;
+}
 #game {
-    max-width: 50%;
+    max-width: 70vw;
     margin: 0 auto;
     margin: 100px auto 0 auto;
     padding: 40px;
-    background-color: #c5a46b;
-    border-radius: 20px;
+    border-radius: 10px;
+}
+body.start #game {
+    background-color: #9b1d04;
+}
+body.start #game h1,
+body.start #game p,
+body.start #game button,
+body.start #game span,
+body.start #game input {
+    color: #ffffff;
+}
+#title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+#title h1 {
+    font-size: 40px;
+    margin: 0;
 }
 #stats {
     text-align: center;
@@ -23,7 +42,6 @@ body {
 }
 #stats span {
     font-size: 20px;
-    color: #2a252a;
 }
 #stats span span {
     margin-right: 10px;
@@ -32,24 +50,26 @@ body {
     margin-right: 0;
 }
 #controls {
-    text-align: center;
     width: 100%;
-    padding: 20px;
-    border-top: 1px solid #2a252a;
 }
 #controls button {
-    padding: 10px 20px;
     margin-right: 10px;
     font-size: 16px;
-    border-radius: 5px;
     cursor: pointer;
-    background-color: #9f673e;
-    border: 3px solid #ad6b3bbd;
-    color: #352f28;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    border-radius: 3px;
+    padding: 5px;
 }
 #controls button:hover {
     background-color: #ca7c3b;
     border-color: #ca7c3b;
+    text-decoration: none;
 }
 #controls button:last-child {
     margin-right: 0;
@@ -59,8 +79,36 @@ body {
 }
 #text {
     text-align: center;
-    background-color: #80592e;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 20px;
     color: #ffffff;
+    margin-bottom: 30px;
+}
+body.start #text {
+    background-color: #611203;
+}
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 20px;
+
+}
+#image-wrapper {
+    width: calc(50% - 5px);
+    height: 50vw;
+    max-height: 60vh;
+    border-radius: 5px;
+    overflow: hidden;
+}
+body.start #image-wrapper .game-images {
+    background-image: url('images/start.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+#text-wrapper {
+    width: calc(50% - 5px);
 }
