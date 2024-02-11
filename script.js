@@ -249,7 +249,7 @@ function getMonsterAttackValue(level) {
 }
 
 function dodge() {
-    text.innerText = "Você esquiva do ataque de " + monsters[fighting].name + ".";
+    text.innerText = "Você esquiva do ataque do " + monsters[fighting].name + ".";
 }
 
 function pick(guess) {
