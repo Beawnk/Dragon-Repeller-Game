@@ -109,6 +109,8 @@ const locations = [
 
 function goTown() {
     update(locations[0]);
+    button1.className = '';
+    button2.className = '';
     document.body.className = '';
     document.body.classList.add('town');
 }
@@ -243,8 +245,6 @@ function isMonsterHit() {
 function getMonsterAttackValue(level) {
     const hit = (level * 5) - (Math.floor(Math.random() * xp));
 
-    console.log(hit);
-
     return hit > 0 ? hit : 0;
 }
 
@@ -283,14 +283,19 @@ function pick(guess) {
 
 function pickOne() {
     pick(guessNumber1);
+    button1.classList.add('none');
+    button2.classList.add('none');
 }
 
 function pickTwo() {
     pick(guessNumber2);
+    button1.classList.add('none');
+    button2.classList.add('none');
 }
 
 function lose() {
     update(locations[5]);
+    health < 0 ? health = 0 : health;
     healthText.innerText = health;
     document.body.className = '';
     document.body.classList.add('lose');
