@@ -303,3 +303,65 @@ body.easter #image-wrapper .game-images {
 #text-wrapper {
     width: calc(50% - 5px);
 }
+
+@media screen and (max-width: 1280px) {
+    #game {
+        max-width: 100%;
+        margin: 100px 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #game {
+        margin-top: 30px;
+    }
+    .content-wrapper {
+        flex-direction: column;
+    }
+    #image-wrapper {
+        width: 100%;
+        height: 40vh;
+        margin-bottom: 20px;
+    }
+    #text-wrapper {
+        width: 100%;
+    }
+    #controls button {
+        padding-left: 5px;
+    }
+    #controls button:hover {
+        background-color: transparent !important;
+        text-decoration: underline;
+    }
+    body.store #controls button:hover {
+        color: #deb6e6;
+    }
+    body.easter #controls button:hover {
+        color: #eadc8a;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #game {
+        padding: 20px;
+    }
+    #title {
+        margin-bottom: 10px;
+    }
+    #title h1 {
+        font-size: 28px;
+    }
+    #stats span {
+        font-size: 14px;
+    }
+    #controls button {
+        font-size: 14px;
+    }
+    #text {
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+    #image-wrapper {
+        height: 30vh;
+    }
+}
