@@ -19,23 +19,22 @@ const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
 
 const weapons = [
-    {
-        name: "faca",
-        power: 5
-    },
-    {
-        name: "adaga",
-        power: 30
-    },
-    {
-        name: "machado",
-        power: 50
-    },
-    {
-        name: "espada",
-        power: 100
-    }
-
+	{
+		name: "faca",
+		power: 5,
+	},
+	{
+		name: "adaga",
+		power: 30,
+	},
+	{
+		name: "machado",
+		power: 50,
+	},
+	{
+		name: "espada",
+		power: 100,
+	},
 ];
 const monsters = [ 
     {
